@@ -1,8 +1,8 @@
 import os
-#root_dir = "/home/eddie/logs/yarn-default"
-root_dir = "/Users/Eddie/gitRepo/log-preprocessor/test-log-dir"
+root_dir = "/home/eddie/logs/yarn-default/host7-logs/"
+#root_dir = "/Users/Eddie/gitRepo/log-preprocessor/test-log-dir"
 source_files = ["stderr"]
-target_file = "./test-log-dir/combined_log"
+target_file = "./test-log-dir/combined-log"
 
 g = os.walk(root_dir, topdown=False)
 
@@ -13,7 +13,8 @@ fw = open(target_file, "a")
 for child_root, dirs, files in g:
 	for file_name in files:
 		if source_files.__contains__(file_name):
-			fr = open(os.path.join(child_root, file_name))
+			name = os.path.join(child_root, file_name)
+			fr = open(name)
 			while 1:
 				line = fr.readline().strip('\t\n\r')
 				if not line:

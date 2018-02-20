@@ -1,6 +1,6 @@
 import re
-source_file = "spark-log.log"
-target_file = "spark-only-content.log"
+source_file = "./data/combined-log"
+target_file = "./data/spark-only-content.log"
 fr = open(source_file)
 fw = open(target_file, "a")
 
